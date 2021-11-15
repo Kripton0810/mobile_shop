@@ -59,7 +59,7 @@
             user-select: none;
             cursor: pointer;
         }
-        .menu a{
+        nav a{
             text-decoration: none;
             color: white;
         }
@@ -343,6 +343,7 @@
                 display: flex;
             }
             nav div{
+                font-size: 1rem;
                 padding: 20px 180px;
             }
             nav{
@@ -400,10 +401,10 @@
         </div>
         
         <nav class="head-main" id="nav">
-            <div class="menu active"><a href="#home">Home</a></div>
-            <div class="menu"><a href="#gallery">Gallery</a></div>
+            <a href="#home"><div class="menu active">Home</div></a>
+            <a href="#gallery"><div class="menu">Gallery</div></a>
             <div class="menu">About</div>
-            <div class="menu"><a href="#contact">Contact Us</a></div>
+            <a href="#contact"><div class="menu">Contact Us</div></a>
         </nav>
         <div class="ham tran" id="ham">
             <div class="line" id="l1"></div>
