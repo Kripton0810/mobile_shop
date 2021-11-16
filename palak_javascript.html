@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .fonts{
+            color: red;
+        }
+        body
+        {
+            cursor: url('./images/covid19.png'), auto;
+            width: 100vw;
+            height: 100vh;
+            background: rgb(29, 29, 29);
+        }
+        .face
+        {
+            position: relative;
+            transform: translate(-50%,-50%);
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            background-color: rgb(241, 197, 0);
+            border-radius: 50%;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+
+        }
+        .face:hover::before{
+            top: 270px;
+            height: 40px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius:0px;
+        }
+        .face::before{
+            content: '';
+            position: absolute;
+            top: 230px;
+            transition: 0.5s;
+            width: 170px;
+            height: 80px;
+            background-color: rgb(155, 96, 2);
+            border-bottom-left-radius: 190px;
+            border-bottom-right-radius: 190px;
+        }
+        .eyes
+        {
+            position: relative;
+            display: flex;
+            top: -70px;
+        }
+        .eyes .eye{
+            position: relative;
+            width: 90px;
+            height: 90px;
+            display: block;
+            background-color: #fff;
+            margin: 0 20px;
+            border-radius: 50%;
+        }
+        .eyes .eye::before
+        {
+            content: '';
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            position: absolute;
+            border-radius: 50%;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 30px;
+        }
+    </style>
+</head>
+<body>
+        <div class="face">
+            <div class="eyes">
+                <div class="eye"></div>
+                <div class="eye"></div>
+            </div>
+        </div>
+    
+    <script>
+        document.querySelector('body')
+        .addEventListener("mousemove",eyeball);
+        function eyeball()
+        {
+            var eye = document.querySelectorAll('.eye');
+            eye.forEach(function(eye){
+                let x = (eye.getBoundingClientRect().left)+(eye.clientWidth/2);
+                let y = (eye.getBoundingClientRect().top)+(eye.clientHeight/2);
+                let rad = Math.atan2(event.pageX-x,event.pageY-y);
+                let rot = (rad*(180/Math.PI)*-1)+270;
+                eye.style.transform = "rotate("+rot+"deg)";
+            })
+        }
+    </script>
+</body>
+</html>
